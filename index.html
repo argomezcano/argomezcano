@@ -1,19 +1,414 @@
 ---
 ---
+# Diseño 1: Estilo Académico Clásico
+
+```html
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Materiales Didácticos</title>
-  </head>
-  <body>
-    <h1>Materiales didácticos</h1>
-    <p>Bienvenid@ a la web de recursos.</p>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiales Didácticos - Programación Científica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .header-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .language-icon {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 50%;
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .language-icon:hover {
+            transform: scale(1.1);
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(52, 152, 219, 0.9);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .section.r-section { border-left-color: #276cda; }
+        .section.python-section { border-left-color: #3776ab; }
+        .section.general-section { border-left-color: #2ecc71; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .r-section .section-icon { background: #276cda; }
+        .python-section .section-icon { background: #3776ab; }
+        .general-section .section-icon { background: #2ecc71; }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .video-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .video-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .video-placeholder {
+            background: #ecf0f1;
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .chapter-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .chapter-list a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .chapter-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 { font-size: 2rem; }
+            nav ul { flex-direction: column; gap: 1rem; }
+            .section { padding: 2rem 1rem; }
+            .video-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Materiales Didácticos</h1>
+                <p>Programación Científica y Análisis de Datos</p>
+                <div class="header-icons">
+                    <div class="language-icon">📊</div>
+                    <div class="language-icon">🐍</div>
+                    <div class="language-icon">📈</div>
+                    <div class="language-icon">🔬</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <nav>
-      <ul>
-        <li><a href="R/basico.html">R Básico</a></li>
-        <li><a href="Python/avanzado.html">Python Avanzado</a></li>
-        <li><a href="Generales/introductorios.html">Materiales Generales</a></li>
-      </ul>
+        <div class="container">
+            <ul>
+                <li><a href="#r-section">Programación en R</a></li>
+                <li><a href="#python-section">Python Científico</a></li>
+                <li><a href="#general-section">Recursos Generales</a></li>
+            </ul>
+        </div>
     </nav>
-  </body>
+
+    <main>
+        <div class="container">
+            <!-- Sección R -->
+            <section id="r-section" class="section r-section">
+                <div class="section-header">
+                    <div class="section-icon">R</div>
+                    <h2>Programación en R</h2>
+                </div>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #7f8c8d;">
+                    Explora el poder del lenguaje R para análisis estadístico, visualización de datos y computación científica.
+                </p>
+                
+                <div class="video-grid">
+                    <div class="video-card">
+                        <h3>R Básico - Fundamentos</h3>
+                        <div class="video-placeholder">
+                            🎥 Vídeo: Introducción a R
+                        </div>
+                        <p>Aprende los conceptos fundamentales del lenguaje R.</p>
+                        <ul class="chapter-list">
+                            <li><a href="#ch1">Introducción al entorno R</a></li>
+                            <li><a href="#ch2">Tipos de datos y estructuras</a></li>
+                            <li><a href="#ch3">Operaciones básicas</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="video-card">
+                        <h3>Visualización con ggplot2</h3>
+                        <div class="video-placeholder">
+                            🎥 Vídeo: ggplot2 Avanzado
+                        </div>
+                        <p>Domina la gramática de gráficos con ggplot2.</p>
+                        <ul class="chapter-list">
+                            <li><a href="#ch4">Sintaxis básica de ggplot2</a></li>
+                            <li><a href="#ch5">Gráficos estadísticos</a></li>
+                            <li><a href="#ch6">Personalización avanzada</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Python -->
+            <section id="python-section" class="section python-section">
+                <div class="section-header">
+                    <div class="section-icon">🐍</div>
+                    <h2>Python Científico</h2>
+                </div>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #7f8c8d;">
+                    Domina Python para ciencia de datos, machine learning y computación científica avanzada.
+                </p>
+                
+                <div class="video-grid">
+                    <div class="video-card">
+                        <h3>NumPy y Pandas</h3>
+                        <div class="video-placeholder">
+                            🎥 Vídeo: Manipulación de Datos
+                        </div>
+                        <p>Fundamentos de análisis de datos con Python.</p>
+                        <ul class="chapter-list">
+                            <li><a href="#py1">Introducción a NumPy</a></li>
+                            <li><a href="#py2">DataFrames con Pandas</a></li>
+                            <li><a href="#py3">Limpieza de datos</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="video-card">
+                        <h3>Machine Learning</h3>
+                        <div class="video-placeholder">
+                            🎥 Vídeo: Scikit-Learn
+                        </div>
+                        <p>Algoritmos de aprendizaje automático en Python.</p>
+                        <ul class="chapter-list">
+                            <li><a href="#py4">Regresión lineal</a></li>
+                            <li><a href="#py5">Clasificación</a></li>
+                            <li><a href="#py6">Validación de modelos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección General -->
+            <section id="general-section" class="section general-section">
+                <div class="section-header">
+                    <div class="section-icon">📚</div>
+                    <h2>Recursos Generales</h2>
+                </div>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #7f8c8d;">
+                    Recursos complementarios, metodologías y herramientas transversales para la programación científica.
+                </p>
+                
+                <div class="video-grid">
+                    <div class="video-card">
+                        <h3>Git y Control de Versiones</h3>
+                        <div class="video-placeholder">
+                            🎥 Vídeo: Git para Científicos
+                        </div>
+                        <p>Gestión de proyectos y colaboración en investigación.</p>
+                        <ul class="chapter-list">
+                            <li><a href="#g1">Fundamentos de Git</a></li>
+                            <li><a href="#g2">Flujo de trabajo científico</a></li>
+                            <li><a href="#g3">Colaboración en GitHub</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="video-card">
+                        <h3>Reproducibilidad Científica</h3>
+                        <div class="video-placeholder">
+                            🎥 Vídeo: Buenas Prácticas
+                        </div>
+                        <p>Metodologías para investigación reproducible.</p>
+                        <ul class="chapter-list">
+                            <li><a href="#g4">Documentación de código</a></li>
+                            <li><a href="#g5">Entornos virtuales</a></li>
+                            <li><a href="#g6">Automatización de análisis</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Materiales Didácticos - Programación Científica</p>
+            <p>Transmitting Science - Educación y Formación Científica</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para navegación
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animación de entrada para las secciones
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
 </html>
+```
