@@ -1,6 +1,4 @@
----
----
-# Diseño 1: Estilo Académico Clásico
+# Diseño 2: Estilo Minimalista Científico
 
 ```html
 <!DOCTYPE html>
@@ -8,8 +6,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materiales Didácticos - Programación Científica</title>
+    <title>Laboratorio de Programación Científica</title>
     <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-green: #10b981;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,227 +25,300 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-light);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
 
-        /* Header */
+        /* Header minimalista */
         header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            color: white;
+            background: var(--white);
+            border-bottom: 3px solid var(--primary-blue);
             padding: 2rem 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .header-content {
-            text-align: center;
-        }
-
-        .header-content h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header-content p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .header-icons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .language-icon {
-            background: rgba(255,255,255,0.2);
-            padding: 1rem;
-            border-radius: 50%;
-            font-size: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .language-icon:hover {
-            transform: scale(1.1);
-            background: rgba(255,255,255,0.3);
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(52, 152, 219, 0.9);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Main Content */
-        main {
-            padding: 3rem 0;
-        }
-
-        .section {
-            background: white;
-            margin: 2rem 0;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-left: 5px solid;
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .section.r-section { border-left-color: #276cda; }
-        .section.python-section { border-left-color: #3776ab; }
-        .section.general-section { border-left-color: #2ecc71; }
-
-        .section-header {
-            display: flex;
+        .header-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
             align-items: center;
-            margin-bottom: 2rem;
+            gap: 2rem;
+        }
+
+        .logo-section h1 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .logo-section p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .tech-badges {
+            display: flex;
             gap: 1rem;
         }
 
-        .section-icon {
-            width: 60px;
-            height: 60px;
+        .tech-badge {
+            background: var(--bg-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .badge-r { 
+            border-color: #276cda; 
+            color: #276cda; 
+        }
+
+        .badge-python { 
+            border-color: #3776ab; 
+            color: #3776ab; 
+        }
+
+        .badge-data { 
+            border-color: var(--accent-green); 
+            color: var(--accent-green); 
+        }
+
+        /* Navegación minimalista */
+        nav {
+            background: var(--primary-blue);
+            padding: 0;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-list li {
+            flex: 1;
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 1.5rem;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            background: var(--secondary-blue);
+        }
+
+        /* Main content */
+        main {
+            padding: 4rem 0;
+        }
+
+        .section {
+            background: var(--white);
+            margin: 3rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+        }
+
+        .section-header {
+            padding: 2.5rem 3rem 0;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .section-number {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
             color: white;
         }
 
-        .r-section .section-icon { background: #276cda; }
-        .python-section .section-icon { background: #3776ab; }
-        .general-section .section-icon { background: #2ecc71; }
+        .r-section .section-number { background: #276cda; }
+        .python-section .section-number { background: #3776ab; }
+        .general-section .section-number { background: var(--accent-green); }
 
-        .section h2 {
-            font-size: 2.5rem;
-            color: #2c3e50;
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
         }
 
-        .video-grid {
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        .section-content {
+            padding: 3rem;
+            padding-top: 2rem;
+        }
+
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
-        .video-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid #e9ecef;
+        .content-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
             transition: all 0.3s ease;
         }
 
-        .video-card:hover {
-            background: #e3f2fd;
-            border-color: #2196f3;
+        .content-card:hover {
+            border-color: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        .video-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
+        .card-header {
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        .video-placeholder {
-            background: #ecf0f1;
-            height: 200px;
-            border-radius: 8px;
+        .card-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .card-header p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .video-preview {
+            height: 180px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #7f8c8d;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 3rem;
         }
 
-        .chapter-list {
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .chapter-index {
             list-style: none;
-            margin-top: 1rem;
         }
 
-        .chapter-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
+        .chapter-index li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .chapter-list a {
-            color: #3498db;
+        .chapter-index li:last-child {
+            border-bottom: none;
+        }
+
+        .chapter-number {
+            background: var(--bg-light);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .chapter-index a {
+            color: var(--text-dark);
             text-decoration: none;
+            flex: 1;
         }
 
-        .chapter-list a:hover {
-            text-decoration: underline;
+        .chapter-index a:hover {
+            color: var(--secondary-blue);
         }
 
-        /* Footer */
+        /* Footer minimalista */
         footer {
-            background: #2c3e50;
+            background: var(--text-dark);
             color: white;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
+            padding: 3rem 0;
+            margin-top: 4rem;
         }
 
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .header-content h1 { font-size: 2rem; }
-            nav ul { flex-direction: column; gap: 1rem; }
-            .section { padding: 2rem 1rem; }
-            .video-grid { grid-template-columns: 1fr; }
+            .header-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .tech-badges {
+                justify-content: center;
+            }
+
+            .nav-list {
+                flex-direction: column;
+            }
+
+            .section-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="header-content">
-                <h1>Materiales Didácticos</h1>
-                <p>Programación Científica y Análisis de Datos</p>
-                <div class="header-icons">
-                    <div class="language-icon">📊</div>
-                    <div class="language-icon">🐍</div>
-                    <div class="language-icon">📈</div>
-                    <div class="language-icon">🔬</div>
+            <div class="header-grid">
+                <div class="logo-section">
+                    <h1>Laboratorio de Programación Científica</h1>
+                    <p>Recursos avanzados para análisis de datos y computación científica</p>
+                </div>
+                <div class="tech-badges">
+                    <div class="tech-badge badge-r">R</div>
+                    <div class="tech-badge badge-python">Python</div>
+                    <div class="tech-badge badge-data">Data</div>
                 </div>
             </div>
         </div>
@@ -245,7 +326,7 @@
 
     <nav>
         <div class="container">
-            <ul>
+            <ul class="nav-list">
                 <li><a href="#r-section">Programación en R</a></li>
                 <li><a href="#python-section">Python Científico</a></li>
                 <li><a href="#general-section">Recursos Generales</a></li>
@@ -258,38 +339,69 @@
             <!-- Sección R -->
             <section id="r-section" class="section r-section">
                 <div class="section-header">
-                    <div class="section-icon">R</div>
-                    <h2>Programación en R</h2>
-                </div>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #7f8c8d;">
-                    Explora el poder del lenguaje R para análisis estadístico, visualización de datos y computación científica.
-                </p>
-                
-                <div class="video-grid">
-                    <div class="video-card">
-                        <h3>R Básico - Fundamentos</h3>
-                        <div class="video-placeholder">
-                            🎥 Vídeo: Introducción a R
-                        </div>
-                        <p>Aprende los conceptos fundamentales del lenguaje R.</p>
-                        <ul class="chapter-list">
-                            <li><a href="#ch1">Introducción al entorno R</a></li>
-                            <li><a href="#ch2">Tipos de datos y estructuras</a></li>
-                            <li><a href="#ch3">Operaciones básicas</a></li>
-                        </ul>
+                    <div class="section-number">01</div>
+                    <div class="section-title">
+                        <h2>Programación en R</h2>
+                        <p>Domina el análisis estadístico y la visualización de datos con R. Desde fundamentos hasta técnicas avanzadas de modelado y gráficos profesionales.</p>
                     </div>
-                    
-                    <div class="video-card">
-                        <h3>Visualización con ggplot2</h3>
-                        <div class="video-placeholder">
-                            🎥 Vídeo: ggplot2 Avanzado
+                </div>
+                <div class="section-content">
+                    <div class="content-grid">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Fundamentos de R</h3>
+                                <p>Nivel: Básico | Duración: 45 min</p>
+                            </div>
+                            <div class="video-preview">🎥</div>
+                            <div class="card-content">
+                                <ul class="chapter-index">
+                                    <li>
+                                        <div class="chapter-number">1</div>
+                                        <a href="#ch1">Instalación y configuración</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">2</div>
+                                        <a href="#ch2">Sintaxis básica y variables</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">3</div>
+                                        <a href="#ch3">Estructuras de datos</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">4</div>
+                                        <a href="#ch4">Funciones básicas</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <p>Domina la gramática de gráficos con ggplot2.</p>
-                        <ul class="chapter-list">
-                            <li><a href="#ch4">Sintaxis básica de ggplot2</a></li>
-                            <li><a href="#ch5">Gráficos estadísticos</a></li>
-                            <li><a href="#ch6">Personalización avanzada</a></li>
-                        </ul>
+
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Visualización con ggplot2</h3>
+                                <p>Nivel: Intermedio | Duración: 60 min</p>
+                            </div>
+                            <div class="video-preview">📊</div>
+                            <div class="card-content">
+                                <ul class="chapter-index">
+                                    <li>
+                                        <div class="chapter-number">1</div>
+                                        <a href="#ch5">Gramática de gráficos</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">2</div>
+                                        <a href="#ch6">Gráficos estadísticos</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">3</div>
+                                        <a href="#ch7">Personalización avanzada</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">4</div>
+                                        <a href="#ch8">Exportación y publicación</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -297,38 +409,69 @@
             <!-- Sección Python -->
             <section id="python-section" class="section python-section">
                 <div class="section-header">
-                    <div class="section-icon">🐍</div>
-                    <h2>Python Científico</h2>
-                </div>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #7f8c8d;">
-                    Domina Python para ciencia de datos, machine learning y computación científica avanzada.
-                </p>
-                
-                <div class="video-grid">
-                    <div class="video-card">
-                        <h3>NumPy y Pandas</h3>
-                        <div class="video-placeholder">
-                            🎥 Vídeo: Manipulación de Datos
-                        </div>
-                        <p>Fundamentos de análisis de datos con Python.</p>
-                        <ul class="chapter-list">
-                            <li><a href="#py1">Introducción a NumPy</a></li>
-                            <li><a href="#py2">DataFrames con Pandas</a></li>
-                            <li><a href="#py3">Limpieza de datos</a></li>
-                        </ul>
+                    <div class="section-number">02</div>
+                    <div class="section-title">
+                        <h2>Python Científico</h2>
+                        <p>Explora el ecosistema científico de Python con NumPy, Pandas, Matplotlib y Scikit-learn para análisis de datos y machine learning.</p>
                     </div>
-                    
-                    <div class="video-card">
-                        <h3>Machine Learning</h3>
-                        <div class="video-placeholder">
-                            🎥 Vídeo: Scikit-Learn
+                </div>
+                <div class="section-content">
+                    <div class="content-grid">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>NumPy y Análisis Numérico</h3>
+                                <p>Nivel: Intermedio | Duración: 50 min</p>
+                            </div>
+                            <div class="video-preview">🔢</div>
+                            <div class="card-content">
+                                <ul class="chapter-index">
+                                    <li>
+                                        <div class="chapter-number">1</div>
+                                        <a href="#py1">Arrays multidimensionales</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">2</div>
+                                        <a href="#py2">Operaciones matemáticas</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">3</div>
+                                        <a href="#py3">Álgebra lineal</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">4</div>
+                                        <a href="#py4">Optimización de rendimiento</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <p>Algoritmos de aprendizaje automático en Python.</p>
-                        <ul class="chapter-list">
-                            <li><a href="#py4">Regresión lineal</a></li>
-                            <li><a href="#py5">Clasificación</a></li>
-                            <li><a href="#py6">Validación de modelos</a></li>
-                        </ul>
+
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Machine Learning con Scikit-learn</h3>
+                                <p>Nivel: Avanzado | Duración: 75 min</p>
+                            </div>
+                            <div class="video-preview">🤖</div>
+                            <div class="card-content">
+                                <ul class="chapter-index">
+                                    <li>
+                                        <div class="chapter-number">1</div>
+                                        <a href="#py5">Preprocesamiento de datos</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">2</div>
+                                        <a href="#py6">Algoritmos supervisados</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">3</div>
+                                        <a href="#py7">Validación y métricas</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">4</div>
+                                        <a href="#py8">Optimización de modelos</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -336,38 +479,69 @@
             <!-- Sección General -->
             <section id="general-section" class="section general-section">
                 <div class="section-header">
-                    <div class="section-icon">📚</div>
-                    <h2>Recursos Generales</h2>
-                </div>
-                <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #7f8c8d;">
-                    Recursos complementarios, metodologías y herramientas transversales para la programación científica.
-                </p>
-                
-                <div class="video-grid">
-                    <div class="video-card">
-                        <h3>Git y Control de Versiones</h3>
-                        <div class="video-placeholder">
-                            🎥 Vídeo: Git para Científicos
-                        </div>
-                        <p>Gestión de proyectos y colaboración en investigación.</p>
-                        <ul class="chapter-list">
-                            <li><a href="#g1">Fundamentos de Git</a></li>
-                            <li><a href="#g2">Flujo de trabajo científico</a></li>
-                            <li><a href="#g3">Colaboración en GitHub</a></li>
-                        </ul>
+                    <div class="section-number">03</div>
+                    <div class="section-title">
+                        <h2>Recursos Generales</h2>
+                        <p>Metodologías, herramientas y buenas prácticas para proyectos de programación científica reproducible y colaborativa.</p>
                     </div>
-                    
-                    <div class="video-card">
-                        <h3>Reproducibilidad Científica</h3>
-                        <div class="video-placeholder">
-                            🎥 Vídeo: Buenas Prácticas
+                </div>
+                <div class="section-content">
+                    <div class="content-grid">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Control de Versiones con Git</h3>
+                                <p>Nivel: Básico | Duración: 40 min</p>
+                            </div>
+                            <div class="video-preview">🌿</div>
+                            <div class="card-content">
+                                <ul class="chapter-index">
+                                    <li>
+                                        <div class="chapter-number">1</div>
+                                        <a href="#g1">Conceptos fundamentales</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">2</div>
+                                        <a href="#g2">Flujo de trabajo básico</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">3</div>
+                                        <a href="#g3">Colaboración con GitHub</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">4</div>
+                                        <a href="#g4">Buenas prácticas</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <p>Metodologías para investigación reproducible.</p>
-                        <ul class="chapter-list">
-                            <li><a href="#g4">Documentación de código</a></li>
-                            <li><a href="#g5">Entornos virtuales</a></li>
-                            <li><a href="#g6">Automatización de análisis</a></li>
-                        </ul>
+
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Documentación y Reproducibilidad</h3>
+                                <p>Nivel: Intermedio | Duración: 35 min</p>
+                            </div>
+                            <div class="video-preview">📋</div>
+                            <div class="card-content">
+                                <ul class="chapter-index">
+                                    <li>
+                                        <div class="chapter-number">1</div>
+                                        <a href="#g5">Documentación de código</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">2</div>
+                                        <a href="#g6">Entornos virtuales</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">3</div>
+                                        <a href="#g7">Notebooks científicos</a>
+                                    </li>
+                                    <li>
+                                        <div class="chapter-number">4</div>
+                                        <a href="#g8">Publicación de resultados</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -376,37 +550,45 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Materiales Didácticos - Programación Científica</p>
-            <p>Transmitting Science - Educación y Formación Científica</p>
+            <p>&copy; 2025 Laboratorio de Programación Científica</p>
+            <p>Transmitting Science - Formación Científica de Excelencia</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling para navegación
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Animación de entrada para las secciones
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
 
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
+        // Active navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = 'var(--secondary-blue)';
+                }
+            });
         });
     </script>
 </body>
