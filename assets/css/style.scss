@@ -120,8 +120,9 @@
 
         /* Main content */
         main {
-            padding: 4rem 0;
-        }
+    padding-top: 80px; /* espacio para el menú sticky */
+    padding-bottom: 4rem;
+}
 
         .section {
             background: var(--white);
